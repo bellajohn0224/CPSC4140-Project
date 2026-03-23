@@ -1,0 +1,99 @@
+:root {
+  --font-size: 16px;
+  --background: #F3F1EB;
+  --foreground: oklch(0.145 0 0);
+  --border: rgba(0, 0, 0, 0.1);
+  --ring: oklch(0.708 0 0);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+
+  /* Kiosk design tokens */
+  --kiosk-bg: #F3F1EB;
+  --kiosk-surface: #FAF8F4;
+  --kiosk-surface-alt: #ECE9E1;
+  --kiosk-primary: #7F9478;
+  --kiosk-primary-dark: #5F735B;
+  --kiosk-text: #2F342F;
+  --kiosk-text-secondary: #6F756D;
+  --kiosk-text-muted: #8D938A;
+  --kiosk-border: #D9D7CF;
+}
+
+@theme inline {
+  /* Kiosk palette */
+  --color-kiosk-bg: var(--kiosk-bg);
+  --color-kiosk-surface: var(--kiosk-surface);
+  --color-kiosk-surface-alt: var(--kiosk-surface-alt);
+  --color-kiosk-primary: var(--kiosk-primary);
+  --color-kiosk-primary-dark: var(--kiosk-primary-dark);
+  --color-kiosk-text: var(--kiosk-text);
+  --color-kiosk-text-secondary: var(--kiosk-text-secondary);
+  --color-kiosk-text-muted: var(--kiosk-text-muted);
+  --color-kiosk-border: var(--kiosk-border);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /**
+  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
+  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
+  */
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h4 {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  label {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  button {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
+}
