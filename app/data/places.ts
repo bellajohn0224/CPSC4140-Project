@@ -28,6 +28,16 @@ export const categories = [
     name: 'Outdoor Spots',
     icon: 'TreePine',
   },
+  {
+    id: 'shopping',
+    name: 'Shopping & Markets',
+    icon: 'ShoppingBag',
+  },
+  {
+    id: 'other',
+    name: 'Other',
+    icon: 'LayoutGrid',
+  },
 ];
 
 export const places: Place[] = [
@@ -131,30 +141,47 @@ export const places: Place[] = [
     recommendation: 'A low-key hidden gem—ideal for a short hike and a peaceful break away from crowds in a more tucked-away natural setting.',
     category: 'outdoor',
 },
-// Community Spaces
+// Shopping & Markets
 {
     id: '13',
-    name: 'Clemson Public Library',
-    description: 'Free community library with study rooms, Wi-Fi, computers, events, and local programming. Open Mon–Sat.',
-    address: '1300 2nd Loop Rd, Clemson, SC 29631',
-    recommendation: 'A welcoming space for studying, quiet work, or attending free community events—open to everyone at no cost.',
-    category: 'community',
+    name: 'Ram Cat Alley',
+    description: 'Charming pedestrian alley in downtown Seneca lined with local shops, boutiques, and dining.',
+    address: 'Ram Cat Alley, Seneca, SC 29678',
+    recommendation: 'A great spot for browsing local shops and grabbing a bite—feels distinctly local and walkable.',
+    category: 'shopping',
 },
 {
     id: '14',
-    name: 'Oconee County Library',
-    description: 'Public library offering books, digital resources, meeting rooms, and free community programs.',
-    address: '501 W South Broad St, Walhalla, SC 29691',
-    recommendation: 'Great for research, reading, or finding out about local events—a reliable free resource for the whole community.',
-    category: 'community',
+    name: 'The Shops at Pendleton',
+    description: 'Historic downtown square with antique shops, local boutiques, and specialty stores.',
+    address: 'E Queen St, Pendleton, SC 29670',
+    recommendation: 'Perfect for a leisurely browse through antiques and local finds in a charming small-town setting.',
+    category: 'shopping',
 },
 {
     id: '15',
-    name: 'Pendleton Community Center',
-    description: 'Multi-purpose community hub hosting local events, gatherings, and recreational activities.',
-    address: '101 E Queen St, Pendleton, SC 29670',
-    recommendation: 'A central spot for connecting with neighbors, attending local events, and getting involved in the community.',
-    category: 'community',
+    name: 'Clemson Farmers Market',
+    description: 'Weekly market with fresh local produce, handmade goods, and artisan vendors. Saturdays, 8 AM–12 PM.',
+    address: '578 Issaqueena Trail, Clemson, SC',
+    recommendation: 'Great for picking up fresh local food and handmade goods while supporting area farmers and makers.',
+    category: 'shopping',
+},
+// Other
+{
+    id: '16',
+    name: 'Clemson University Visitor Center',
+    description: 'Welcome center for campus tours, maps, and local area information. Open Mon–Fri, 8 AM–5 PM.',
+    address: '103 Fernow St, Clemson, SC 29634',
+    recommendation: 'A helpful starting point for exploring campus and getting info on local events and attractions.',
+    category: 'other',
+},
+{
+    id: '17',
+    name: 'Oconee Heritage Center',
+    description: 'Local museum showcasing the history and culture of Oconee County through exhibits and artifacts.',
+    address: '123 Browns Square Dr, Walhalla, SC 29691',
+    recommendation: 'A quiet, interesting stop for learning about the local area—great if you want context on the region\'s history.',
+    category: 'other',
 },
 ];
 

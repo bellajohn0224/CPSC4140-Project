@@ -3,10 +3,12 @@ import { ArrowLeft, MapPin } from 'lucide-react';
 import { getPlacesByCategory, categories } from '../data/places';
 
 const categoryAccent: Record<string, string> = {
-  events:  '#A692BC',
-  food:    '#C4845C',
-  arts:    '#7A9BB5',
-  outdoor: '#7A9B78',
+  events:   '#A692BC',
+  food:     '#C4845C',
+  arts:     '#7A9BB5',
+  outdoor:  '#7A9B78',
+  shopping: '#C4A45C',
+  other:    '#9B9B8A',
 };
 
 export function ResultsScreen() {

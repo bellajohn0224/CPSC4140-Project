@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router';
-import { Calendar, UtensilsCrossed, Palette, Users, TreePine, Home, PlusCircle } from 'lucide-react';
+import { Calendar, UtensilsCrossed, Palette, Users, TreePine, Home, PlusCircle, ShoppingBag, LayoutGrid } from 'lucide-react';
 import { categories } from '../data/places';
 
 const iconMap = {
@@ -8,13 +8,17 @@ const iconMap = {
   Palette,
   Users,
   TreePine,
+  ShoppingBag,
+  LayoutGrid,
 };
 
 const categoryColors: Record<string, { borderColor: string; iconColor: string }> = {
-  events:  { borderColor: '#A692BC', iconColor: '#A692BC' },
-  food:    { borderColor: '#C4845C', iconColor: '#C4845C' },
-  arts:    { borderColor: '#7A9BB5', iconColor: '#7A9BB5' },
-  outdoor: { borderColor: '#7A9B78', iconColor: '#7A9B78' },
+  events:   { borderColor: '#A692BC', iconColor: '#A692BC' },
+  food:     { borderColor: '#C4845C', iconColor: '#C4845C' },
+  arts:     { borderColor: '#7A9BB5', iconColor: '#7A9BB5' },
+  outdoor:  { borderColor: '#7A9B78', iconColor: '#7A9B78' },
+  shopping: { borderColor: '#C4A45C', iconColor: '#C4A45C' },
+  other:    { borderColor: '#9B9B8A', iconColor: '#9B9B8A' },
 };
 
 export function CategorySelectionScreen() {
@@ -22,7 +26,7 @@ export function CategorySelectionScreen() {
 
   const getIcon = (iconName: string) => {
     const IconComponent = iconMap[iconName as keyof typeof iconMap];
-    return IconComponent ? <IconComponent size={52} /> : null;
+    return IconComponent ? <IconComponent size={38} /> : null;
   };
 
   return (
@@ -55,7 +59,7 @@ export function CategorySelectionScreen() {
                 <div style={{ color: colors.iconColor }}>
                   {getIcon(category.icon)}
                 </div>
-                <span className="text-xl text-kiosk-text">
+                <span className="text-lg text-kiosk-text">
                   {category.name}
                 </span>
               </button>
