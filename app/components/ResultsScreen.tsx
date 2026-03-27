@@ -2,12 +2,20 @@ import { useNavigate, useParams } from 'react-router';
 import { ArrowLeft, MapPin } from 'lucide-react';
 import { getPlacesByCategory, categories } from '../data/places';
 
+const categoryAccent: Record<string, string> = {
+  events:  '#A692BC',
+  food:    '#C4845C',
+  arts:    '#7A9BB5',
+  outdoor: '#7A9B78',
+};
+
 export function ResultsScreen() {
   const navigate = useNavigate();
   const { categoryId } = useParams<{ categoryId: string }>();
 
   const places = categoryId ? getPlacesByCategory(categoryId) : [];
   const category = categories.find(c => c.id === categoryId);
+  const accent = categoryId ? (categoryAccent[categoryId] ?? '#7F9478') : '#7F9478';
 
   return (
     <div className="min-h-screen bg-kiosk-bg p-8">
@@ -35,10 +43,13 @@ export function ResultsScreen() {
             <button
               key={place.id}
               onClick={() => navigate(`/place/${place.id}`)}
-              className="w-full bg-kiosk-surface hover:bg-kiosk-surface-alt border-2 border-kiosk-border hover:border-kiosk-primary rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-200 active:scale-[0.98] text-left"
+              style={{ borderColor: 'transparent' }}
+              onMouseEnter={e => (e.currentTarget.style.borderColor = accent)}
+              onMouseLeave={e => (e.currentTarget.style.borderColor = 'transparent')}
+              className="w-full bg-kiosk-surface hover:bg-kiosk-surface-alt border-2 border-kiosk-border rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-200 active:scale-[0.98] text-left"
             >
               <div className="flex items-start gap-6">
-                <div className="w-20 h-20 bg-kiosk-primary rounded-2xl flex items-center justify-center shrink-0">
+                <div className="w-20 h-20 rounded-2xl flex items-center justify-center shrink-0" style={{ backgroundColor: accent }}>
                   <MapPin size={40} className="text-white" />
                 </div>
 
@@ -49,7 +60,7 @@ export function ResultsScreen() {
                   <p className="text-xl text-kiosk-text-secondary mb-4">
                     {place.description}
                   </p>
-                  <div className="inline-flex items-center gap-2 bg-kiosk-surface-alt text-kiosk-primary-dark px-4 py-2 rounded-full text-lg border border-kiosk-border">
+                  <div className="inline-flex items-center gap-2 bg-kiosk-surface-alt px-4 py-2 rounded-full text-lg border border-kiosk-border" style={{ color: accent }}>
                     <span>✓</span>
                     <span>Curated by local library volunteers</span>
                   </div>

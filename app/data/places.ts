@@ -131,6 +131,31 @@ export const places: Place[] = [
     recommendation: 'A low-key hidden gem—ideal for a short hike and a peaceful break away from crowds in a more tucked-away natural setting.',
     category: 'outdoor',
 },
+// Community Spaces
+{
+    id: '13',
+    name: 'Clemson Public Library',
+    description: 'Free community library with study rooms, Wi-Fi, computers, events, and local programming. Open Mon–Sat.',
+    address: '1300 2nd Loop Rd, Clemson, SC 29631',
+    recommendation: 'A welcoming space for studying, quiet work, or attending free community events—open to everyone at no cost.',
+    category: 'community',
+},
+{
+    id: '14',
+    name: 'Oconee County Library',
+    description: 'Public library offering books, digital resources, meeting rooms, and free community programs.',
+    address: '501 W South Broad St, Walhalla, SC 29691',
+    recommendation: 'Great for research, reading, or finding out about local events—a reliable free resource for the whole community.',
+    category: 'community',
+},
+{
+    id: '15',
+    name: 'Pendleton Community Center',
+    description: 'Multi-purpose community hub hosting local events, gatherings, and recreational activities.',
+    address: '101 E Queen St, Pendleton, SC 29670',
+    recommendation: 'A central spot for connecting with neighbors, attending local events, and getting involved in the community.',
+    category: 'community',
+},
 ];
 
 export function getPlacesByCategory(categoryId: string): Place[] {
