@@ -2,11 +2,21 @@ import { useNavigate, useParams } from 'react-router';
 import { ArrowLeft, MapPin, Heart, QrCode, Printer } from 'lucide-react';
 import { getPlaceById } from '../data/places';
 
+const categoryAccent: Record<string, string> = {
+  events:   '#A692BC',
+  food:     '#C4845C',
+  arts:     '#7A9BB5',
+  outdoor:  '#7A9B78',
+  shopping: '#C4A45C',
+  other:    '#9B9B8A',
+};
+
 export function PlaceDetailScreen() {
   const navigate = useNavigate();
   const { placeId } = useParams<{ placeId: string }>();
 
   const place = placeId ? getPlaceById(placeId) : undefined;
+  const accent = place ? (categoryAccent[place.category] ?? '#7F9478') : '#7F9478';
 
   if (!place) {
     return (
@@ -44,7 +54,7 @@ export function PlaceDetailScreen() {
         <div className="bg-kiosk-surface border-2 border-kiosk-border rounded-3xl p-10 shadow-sm mb-8">
           {/* Icon Header */}
           <div className="flex items-start gap-6 mb-8">
-            <div className="w-24 h-24 bg-kiosk-primary rounded-2xl flex items-center justify-center shrink-0">
+            <div className="w-24 h-24 rounded-2xl flex items-center justify-center shrink-0" style={{ backgroundColor: accent }}>
               <MapPin size={48} className="text-white" />
             </div>
             <div className="flex-1">
@@ -60,7 +70,7 @@ export function PlaceDetailScreen() {
           {/* Address */}
           <div className="mb-8 p-6 bg-kiosk-surface-alt rounded-2xl border border-kiosk-border">
             <div className="flex items-center gap-3 mb-2">
-              <MapPin size={28} className="text-kiosk-primary" />
+              <MapPin size={28} style={{ color: accent }} />
               <h2 className="text-2xl text-kiosk-text-secondary">Address</h2>
             </div>
             <p className="text-2xl text-kiosk-text ml-10">
@@ -71,7 +81,7 @@ export function PlaceDetailScreen() {
           {/* Community Recommendation */}
           <div className="p-6 bg-kiosk-surface-alt rounded-2xl border border-kiosk-border">
             <div className="flex items-center gap-3 mb-4">
-              <Heart size={28} className="text-kiosk-primary" />
+              <Heart size={28} style={{ color: accent }} />
               <h2 className="text-2xl text-kiosk-text-secondary">Why the Community Recommends It</h2>
             </div>
             <p className="text-2xl text-kiosk-text leading-relaxed ml-10">
@@ -84,7 +94,8 @@ export function PlaceDetailScreen() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <button
             onClick={() => navigate(`/qr/${place.id}`)}
-            className="bg-kiosk-primary hover:bg-kiosk-primary-dark text-white text-2xl px-8 py-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 flex items-center justify-center gap-4"
+            style={{ backgroundColor: accent }}
+            className="text-white text-2xl px-8 py-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 flex items-center justify-center gap-4"
           >
             <QrCode size={36} />
             Scan QR Code to Save

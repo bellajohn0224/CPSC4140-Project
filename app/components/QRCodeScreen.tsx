@@ -25,8 +25,8 @@ export function QRCodeScreen() {
     );
   }
 
-  const placeUrl = `https://community-board.example.com/place/${place.id}`;
-
+  const placeUrl = `https://drive.google.com/file/d/1FxTFpXCPozj5tNadkoFheRNWQ9Slhobb/preview`;
+ 
   return (
     <div className="min-h-screen bg-kiosk-bg p-8">
       <div className="max-w-3xl mx-auto">
